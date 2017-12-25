@@ -26,13 +26,14 @@ def generate_movie():
 		corpus=get_corpus()
 	text_model=markovify.Text(corpus,retain_original=False)
 	plot=text_model.make_sentence_with_start("En film")
-	#plot=text_model.make_sentence()
 	title=text_model.make_short_sentence(40)
 	return plot,title
 
 @app.route('/')
 def index():
 	plot,title=generate_movie()
+	if not plot and not title:
+		return render_template('error.html')
 	year=random.randint(1985,1995)
 	genre=['Komedi','Skräck','Romantik','Erotik','Thriller','Dokumentär'][random.randint(0,5)].decode('utf-8')
 	rating="%.1f" % random.uniform(0,2)
