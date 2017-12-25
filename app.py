@@ -32,7 +32,7 @@ def generate_movie():
 @app.route('/')
 def index():
 	plot,title=generate_movie()
-	if not plot and not title:
+	if not plot or not title:
 		return render_template('error.html')
 	year=random.randint(1985,1995)
 	genre=['Komedi','Skräck','Romantik','Erotik','Thriller','Dokumentär'][random.randint(0,5)].decode('utf-8')
