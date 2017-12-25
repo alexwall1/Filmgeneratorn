@@ -25,7 +25,8 @@ def generate_movie():
 	if corpus is None:
 		corpus=get_corpus()
 	text_model=markovify.Text(corpus,retain_original=False)
-	plot=text_model.make_sentence()
+	plot=text_model.make_sentence_with_start("En film")
+	#plot=text_model.make_sentence()
 	title=text_model.make_short_sentence(40)
 	return plot,title
 
