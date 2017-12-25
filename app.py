@@ -33,5 +33,6 @@ def generate_movie():
 def index():
 	plot,title=generate_movie()
 	year=random.randint(1985,1995)
+	genre=['Komedi','Skräck','Romantik','Erotik','Thriller','Dokumentär'][random.randint(0,5)].decode('utf-8')
 	rating="%.1f" % random.uniform(0,2)
-	return render_template('base.html',year=year,title=title.replace('.','').decode('utf-8'),rating=rating,plot=plot.decode('utf-8'))
+	return render_template('base.html',genre=genre,year=year,title=title.replace('.','').decode('utf-8'),rating=rating,plot=plot.decode('utf-8'))
