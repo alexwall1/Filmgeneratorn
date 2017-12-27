@@ -5,11 +5,14 @@ from flask import g
 import markovify
 import random
 import json
+import os
 
 app=Flask(__name__)
 
 def load_model_json():
-	with open('model.json','r') as json_file:
+	CURRENT_FILE=os.path.abspath(__file__)
+	CURRENT_DIR=os.path.dirname(CURRENT_FILE)
+	with open(CURRENT_DIR + '/model.json','r') as json_file:
 		model_json=json.load(json_file)
 		return model_json
 
