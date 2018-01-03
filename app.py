@@ -17,10 +17,8 @@ def load_model_json():
 		return model_json
 
 def generate_movie():
-	model_json=getattr(g,'_model_json',None)
-	if model_json is None:
-		model_json=load_model_json()
-	model=markovify.Text.from_dict(model_json)
+	model_json=load_model_json()
+	model=markovify.Text.from_dict(model_json,retain_original=False)
 	plot=model.make_sentence_with_start("En film")
 	title=model.make_short_sentence(40)
 	return plot,title
