@@ -1,3 +1,3 @@
 $("#like").click(function() {
-	$.post('/like');
+	$.post('/filmgeneratorn/like');
 });
