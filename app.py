@@ -83,8 +83,10 @@ def like():
 @app.route('/')
 def index():
 	try:
-		n=query_db('select count(*) from movie')
-		randomness=min(0.5, int(n)/100.0)
+		n=query_db('select count(*) from movie',one=True)
+		print n
+		randomness=min(0.5, int(n[0])/100.0)
+		print randomness
 		if random.random()>randomness:
 			movie=generate_movie()
 		else:
