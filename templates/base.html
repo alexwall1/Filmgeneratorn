@@ -40,12 +40,13 @@
 			<h1 id="name" class="cover-heading">
 </h1>
             <div class="well"><img src="https://picsum.photos/200/?random"></img>
-<h6><i>{{ genre }}</i></h6><h4>{{ title }} ({{ year }})</h4><h5>{{ plot }}</h5><h6>Betyg: {{ rating }}/5</h6></div>
+<h6><i>{{ movie['genre'] }}</i></h6><h4>Föreslagen titel: {{ movie['title'] }}</h4><h5>{{ movie['plot'] }}</h5></div>
+<div><div type="button" class="btn btn-success" id="like">Gilla</div></div>
           </div>
 
           <div class="mastfoot">
             <div class="inner">
-              <p style="display: inline">Denna AI har tränats för att kunna hitta på filmer som ingen vill se.</p>
+              <p style="display: inline">Detta är en AI som tränats att hitta på nya filmer som människor borde gilla.</p>
             </div>
           </div>
 
@@ -57,6 +58,7 @@
 
     <script src="{{ url_for('static',filename='js/jquery-1.12.0.min.js') }}"></script>
     <script src="{{ url_for('static',filename='js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/base.js') }}"></script>
 
   </body>
 </html>
